@@ -174,6 +174,7 @@ ul.navbar-nav ul.sub-nav{
 	left: 236px;
 	padding:0px;
 	border: 1px solid beige;
+	z-index: 999;
 }
 ul.navbar-nav li:hover .sub-nav li > ul li a{
 	font-size: 14px;
@@ -473,13 +474,77 @@ color: #25488a;
       z-index: 999;
       border:none;
 }
+.screen_hoverable_brands {
+	position: fixed;
+	top: 170px;
+	left: 0px;
+	transition: 0.3s;
+	padding: 6px 15px;
+	width: 95px;
+	height: 50px;
+	text-decoration: none;
+	font-size: 20px;
+	color: #fff;
+	z-index: 999;
+	background: #25488a;
+}
+.screen_hoverable_brands:hover{
+	width: 400px;
+	text-align: center;
+}
+ .screen_hoverable_brands:hover .brands{
+ 	 transition-delay: .3s;
+ 	visibility: visible;
+ }
+#all_brands{
+	/*writing-mode: vertical-rl;*/
+	/*text-orientation: mixed;*/
+	text-transform: uppercase;
+	font-size: 12px;
+	font-weight: 700;
+}
+#all_brands i{
+    font-size: 16px;
+    position: relative;
+    top: 3px;
+    left: 3px;
+}
+.brands{
+	position: relative;
+	width: 400px;
+	left: -15px;
+	top: 13px;
+	visibility: hidden;
+	
+}
+.brands ul {
+	position: absolute;
+	list-style-type: none;
+	background: #142d5b;
+	padding-bottom: 15px;
+	padding-top: 10px;
+}
+.brands ul li{
+	display: inline-block;
+	line-height: 50px;
+	width: 70px;
+}
+.brands ul li a img{
+	width: 50px;
+	height: 100%;
+}
+.brands ul li a{
+	text-align: center;
+	margin: 0px 18px 0px 0px;
+}
 .screen_hoverable_button {
 	position: fixed;
 	top: 170px;
-	right: -45px;
+	right: -151px !important;
 	transition: 0.3s;
 	padding: 6px 15px;
-	width: 100px;
+	width: 200px;
+	height: 50px;
 	text-decoration: none;
 	font-size: 20px;
 	color: #fff;
@@ -488,18 +553,24 @@ color: #25488a;
 }
 .screen_hoverable_button a{
 	text-decoration: none;
+	color: #fff;
 }
-.screen_hoverable_button a:hover{
-  right: 0; /* On mouse-over, make the elements appear as they should */
+.screen_hoverable_button:hover {
+	width: 200px;
+	right: 0 !important;
 }
-#stores_location{
-	 top: 20px;
-	/*background-color: blue;*/
+/*.screen_hoverable_button a:hover{
+  right: 0;
+}*/
+#stores_location {
+	top: 8px;
+	position: absolute;
 }
 /*.screen_hoverable_button a{}*/
 .screen_hoverable_button a i{
 	color: #e64520;
 	font-size: 30px;
+	padding-right: 12px;
 }
 
     #stores_location i{
@@ -574,6 +645,7 @@ label #comboCancel {
 	 #check:checked ~ .mobile_wala_view {
 	 	display: block;
         left: 0;
+        z-index: 1024;
 
     }
     #check:checked ~ label {
@@ -599,7 +671,6 @@ label #comboCancel {
     margin-bottom: 0;
 }
 .footer_area {
-	text-align: center;
 	padding:60px 0 20px;
 	position: relative;
 	color: #fff;
@@ -608,7 +679,11 @@ label #comboCancel {
 	word-break: break-all;
 	word-wrap: break-word;
 }
-
+@media(max-width: 768px){
+	.footer_area {
+	text-align: center;
+}
+}
 .single_ftr form{
 	margin-top: 8px;
 }
@@ -746,7 +821,7 @@ label #comboCancel {
 }
 .ftr_social_icon ul li a:hover{
 	background: #12318c;
-	border-color: gray;
+	border-color: #142d5b;
 	color: #fff;
 }
 
@@ -754,7 +829,7 @@ label #comboCancel {
 	background: transparent;
 	padding-top: 20px;
 	/*padding-bottom: 20px;*/
-	border-top: 1px solid #666;
+	border-top: 1px solid #142d5b;
 	margin-top: 28px;
 	z-index: 100;
 	position: relative;
@@ -777,3 +852,176 @@ label #comboCancel {
 	width: 65px;
 	margin-right: 5px;
 }
+
+
+/*category content*/
+.category_content, .product_container{
+	width: 100%;
+	height: 100%;
+	box-sizing: border-box;
+	box-shadow: 0 1px 2px rgba(0, 0, 0, 0.16), 0 2px 3px rgba(0, 0, 0, 0.12);
+	padding: 24px;
+}
+.category_title,.price_range p, .brand_multi_select p, .available_colors p{
+	font-size: 14px;
+	font-weight: 700;
+	text-transform: uppercase;
+	margin: 16px 0px;
+}
+.category_title span{
+	color: #979393;
+}
+.category_title span i{
+	padding:0px 4px;
+	color: #979393;
+}
+
+.brand_name ul, .colors_name ul{
+	list-style-type: none;
+	margin-left: -38px;
+}
+.brand_name ul li label, .colors_name ul li label {
+	font-weight: 600;
+	font-size: 12px;
+	text-transform: uppercase;
+}
+/* Base for label styling */
+.brand_name ul li [type="checkbox"]:not(:checked),
+.brand_name ul li [type="checkbox"]:checked {
+  position: absolute;
+  left: -9999px;
+}
+.brand_name ul li [type="checkbox"]:not(:checked) + label,
+.brand_name ul li [type="checkbox"]:checked + label {
+  position: relative;
+  padding-left: 1.95em;
+  cursor: pointer;
+}
+
+
+/* checkbox aspect */
+.brand_name ul li [type="checkbox"]:not(:checked) + label:before,
+.brand_name ul li [type="checkbox"]:checked + label:before {
+  content: '';
+  position: absolute;
+  left: 0; 
+  top: 2px;
+  width: 1.25em; 
+  height: 1.25em;
+  border: 1px solid #ccc;
+  background: #fff;
+  /*border-radius: 4px;*/
+  box-shadow: inset 0 1px 3px rgba(0,0,0,.1);
+}
+/* checked mark aspect */
+.brand_name ul li [type="checkbox"]:not(:checked) + label:after,
+.brand_name ul li [type="checkbox"]:checked + label:after {
+  content: '\2713\0020';
+  position: absolute;
+  top: .4em; 
+  left: .22em;
+  font-size: 1em;
+  line-height: 0.8;
+  color: #12318c;
+  transition: all .2s;
+}
+/* checked mark aspect changes */
+.brand_name ul li [type="checkbox"]:not(:checked) + label:after {
+  opacity: 0;
+  transform: scale(0);
+}
+.brand_name ul li [type="checkbox"]:checked + label:after {
+  opacity: 1;
+  transform: scale(1);
+}
+/* disabled checkbox */
+.brand_name ul li [type="checkbox"]:disabled:not(:checked) + label:before,
+.brand_name ul li [type="checkbox"]:disabled:checked + label:before {
+  box-shadow: none;
+  background-color: #ddd;
+}
+.brand_name ul li [type="checkbox"]:disabled:checked + label:after {
+  color: #999;
+}
+.brand_name ul li [type="checkbox"]:disabled + label {
+  color: #aaa;
+}
+
+
+
+/* checkbox aspect for colors pallets */
+
+.colors_name ul li span{
+	position: relative;
+	width: 15px;
+	height: 15px;
+	border-radius: 50%;
+	display: inline-block;
+	top: 2px;
+	right: 7px;
+}
+.available_item_count {
+	padding-left: 1.5rem;
+	position: relative;
+	font-size: 12px;
+	top: -3px !important;
+	color: #999;
+}
+.colors_name ul li [type="checkbox"]:not(:checked),
+.colors_name ul li [type="checkbox"]:checked {
+  position: absolute;
+  left: -9999px;
+}
+.colors_name ul li [type="checkbox"]:not(:checked) + label,
+.colors_name ul li [type="checkbox"]:checked + label {
+  position: relative;
+  padding-left: 2.5em;
+  cursor: pointer;
+}
+.colors_name ul li [type="checkbox"]:not(:checked) + label:before,
+.colors_name ul li [type="checkbox"]:checked + label:before {
+  content: '';
+  position: absolute;
+  left: 0; 
+  top: 2px;
+  width: 1.25em; 
+  height: 1.25em;
+  border: 1px solid #ccc;
+  background: #fff;
+  /*border-radius: 4px;*/
+  box-shadow: inset 0 1px 3px rgba(0,0,0,.1);
+}
+/* checked mark aspect */
+.colors_name ul li [type="checkbox"]:not(:checked) + label:after,
+.colors_name ul li [type="checkbox"]:checked + label:after {
+  content: '\2713\0020';
+  position: absolute;
+  top: .4em; 
+  left: .22em;
+  font-size: 1em;
+  line-height: 0.8;
+  color: #12318c;
+  transition: all .2s;
+}
+/* checked mark aspect changes */
+.colors_name ul li [type="checkbox"]:not(:checked) + label:after {
+  opacity: 0;
+  transform: scale(0);
+}
+.colors_name ul li [type="checkbox"]:checked + label:after {
+  opacity: 1;
+  transform: scale(1);
+}
+/* disabled checkbox */
+.colors_name ul li [type="checkbox"]:disabled:not(:checked) + label:before,
+.colors_name ul li [type="checkbox"]:disabled:checked + label:before {
+  box-shadow: none;
+  background-color: #ddd;
+}
+.colors_name ul li [type="checkbox"]:disabled:checked + label:after {
+  color: #999;
+}
+.colors_name ul li [type="checkbox"]:disabled + label {
+  color: #aaa;
+}
+/*end category*/
